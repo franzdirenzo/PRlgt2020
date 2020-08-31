@@ -1,0 +1,77 @@
+
+This is the first release of PRlgt2020, a package for computations
+in Numerical Stochastic Perturbation Theory (NSPT). You could ask
+why the name PRlgt does not immediately refer to NSPT. The name 
+is partially a legacy (you usually do not change a name after so
+many years); the explicit reference only to LGT (and not to NSPT)
+is there to say that in principle the general framework could
+support non-perturbative simulations as well.
+
+From the Parma group perspective, PRlgt has by now a long history.
+In the framework of the activities of the ITN EuroPLEx, we decided
+to refurbish it and to release it to make it available to everyone
+interested in. This is the first release; others will follow, step
+by step.
+
+In this this first release we are mainly concerned to SU(2) and SU(3)
+quenched simulations; a very basic environment to start with.
+
+If you want a really quick start, simply type "Make Quenched" and you
+will have the "Quenched" executable program. The compilation-time choices
+are set in the header file named "choices.h": simply read it and you will
+easily understand what are the possible settings. The run-time choices
+are set in the "Quench.cfg" input file; there is another file that
+controls execution: this is the "damocle.dag" file. At regular intervals
+this file is read: you can confirm or change the value of a few parameters
+and possibly decide to stop your simulation. The location for saving the
+various outputs are set in "Quench.cfg" (have a look).
+
+The code is written in C++ (admittely not a very modern one, as for style).
+It is built in various layers: one defines the basic classes for colour
+matrices and vectors; gluons are then constructed on top of these and
+everything is coded both in non-perturbative and perturbative versions
+(where perturbative - you will see - means a collection of orders): in both
+cases basic operations as matrix multiplication ("*") are overloaded. You
+can then create a lattice and attach fields to it (so, for example, there
+are gluons and gluon fields, the latter making sense only attached to a
+lattice). The lattice is the depositary of all the relations between
+the various lattice sites, e.g. how to locate in memory a site from its
+coordinates or by taking steps from another site. You will see various
+syntaxes are allowed, hopefully quite natural ones. All this will be
+much better explained in a paper which is being issued.
+
+Together with the software package, we will release a small collection of
+configuration ensambles. At this first stage, these are only meant to let
+the interested one make practice in manipulating them. So, a small set of
+configurations for a 12^4 lattice up to order g^8 (Wilson action): see
+https://drive.google.com/drive/folders/1EM3ApITHvuVtQU6Xp_pDPs0yO7RH2TS3?usp=sharing
+Notice that the NSPT processes are meant as stochastic time discretisations
+of continuum processes; that's why you need to extrapolate results (in this
+first release, in which everything is basic, Euler scheme is our choice) and
+configurations always come in a collection for various time step values.
+
+Have fun and (most importantly) stay tuned for next releases: much more to
+come soon!
+
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - -
+
+Authors:
+
+Michele Brambilla (PSI, previously at University of Parma)
+Francesco Di Renzo (University of Parma)
+Gianluca Filaci (Monozukuri, previously at University of Edinburgh)
+
+Many thanks to Dirk Hesse (Equinor, previously at University of Parma),
+not only for ranluxd, but for a fruitful collaboration and for many useful
+discussions as well. Dirk was the author of another NSPT package (parmalgt)
+which was powerful and more modern as for programming style; actually too
+modern to maintain for someone of the age of FDR...
+
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - -
+
+[1] ranlxd is a C++ wrapepr for Martin Lüscher's RANLUX (author: Dirk Hesse)
+See https://github.com/dhesse/ranlxd
+
+[2] SFMT is a SIMD-oriented Fast Mersenne Twister (Copyright (c) 2012 Mutsuo Saito,
+Makoto Matsumoto, Hiroshima University and The University of Tokyo)
+See http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/

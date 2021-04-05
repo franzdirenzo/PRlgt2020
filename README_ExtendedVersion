@@ -43,8 +43,9 @@ much better explained in a paper which is being issued.
 Together with the software package, we will release a small collection of
 configuration ensambles. At this first stage, these are only meant to let
 the interested one make practice in manipulating them. So, a small set of
-configurations for a 12^4 lattice up to order g^8 (Wilson action): see
-https://drive.google.com/drive/folders/1EM3ApITHvuVtQU6Xp_pDPs0yO7RH2TS3?usp=sharing
+configurations for a 12^4 lattice up to order g^8 (Wilson action) is online: 
+previously distributed via another platform, since April 2021 this small 
+ensemble is available at https://zenodo.org/record/4662602.
 Notice that the NSPT processes are meant as stochastic time discretisations
 of continuum processes; that's why you need to extrapolate results (in this
 first release, in which everything is basic, Euler scheme is our choice) and
